@@ -1,27 +1,26 @@
-enum Gender {
-    FEMALE,
-    MALE
+#[derive(Debug)]
+enum ErrorType {
+    NotAvailable(String,),
+    PostionError{x:u32, y:u32, z:u32} ,
+    UnknownError,
 }
-
-struct Person {
-    id:u32,
-    name:String,
-    gender:Gender
-} 
 
 fn main() {
 
-    let person_1 = Person {
-        id:1,
-        name:"Paul Abbas".to_string(),
-        gender: Gender::FEMALE
-    };
+    let error_list = vec![
+        ErrorType::UnknownError,
+        ErrorType::PostionError{x:15, y:48, z:89},
+        ErrorType::UnknownError,
+        ErrorType::NotAvailable(String::from("url not available")),
+        ErrorType::UnknownError,
+        ErrorType::NotAvailable(String::from("resource already on use"))  
+    ];
 
-    let gender_message = match person_1.gender {
-        Gender::MALE => "I am a boy",
-        Gender::FEMALE => "I am a girl"
-    };
-
-
-    println!("Hello world I am {}, {}!", person_1.name, gender_message);
+    for error in &error_list{
+        match error {
+            ErrorType::NotAvailable(data) => println!("{}",data),
+            ErrorType::PostionError{x,y,z} => println!("Error occured at position x={} y={} z={} ",x,y,z),
+            ErrorType::UnknownError => println!("Unknown Error")
+        }
+    }
 }
