@@ -1,7 +1,12 @@
+enum Gender {
+    FEMALE,
+    MALE
+}
+
 struct Person {
     id:u32,
     name:String,
-    gender:String
+    gender:Gender
 } 
 
 fn main() {
@@ -9,15 +14,12 @@ fn main() {
     let person_1 = Person {
         id:1,
         name:"Paul Abbas".to_string(),
-        gender:"xmale".to_string()
+        gender: Gender::FEMALE
     };
 
-    let gender_message = if person_1.gender.eq("male") {
-        "I am a boy"
-    } else if person_1.gender.eq("female") {
-        "I am a girl"
-    } else {
-        "gender:unknown"
+    let gender_message = match person_1.gender {
+        Gender::MALE => "I am a boy",
+        Gender::FEMALE => "I am a girl"
     };
 
 
