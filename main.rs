@@ -1,26 +1,33 @@
 #[derive(Debug)]
-enum ErrorType {
-    NotAvailable(String,),
-    PostionError{x:u32, y:u32, z:u32} ,
-    UnknownError,
+enum Gender {
+    FEMALE,
+    MALE
+}
+
+#[derive(Debug)]
+struct Person {
+    id:u32,
+    name:String,
+    gender:Gender
+} 
+
+fn person_factory(name:String, gender:Gender) -> Person {
+    return Person {
+        id:12,
+        name:name,
+        gender:gender
+    };
 }
 
 fn main() {
 
-    let error_list = vec![
-        ErrorType::UnknownError,
-        ErrorType::PostionError{x:15, y:48, z:89},
-        ErrorType::UnknownError,
-        ErrorType::NotAvailable(String::from("url not available")),
-        ErrorType::UnknownError,
-        ErrorType::NotAvailable(String::from("resource already on use"))  
-    ];
+    let mut list_person = Vec::new();
 
-    for error in &error_list{
-        match error {
-            ErrorType::NotAvailable(data) => println!("{}",data),
-            ErrorType::PostionError{x,y,z} => println!("Error occured at position x={} y={} z={} ",x,y,z),
-            ErrorType::UnknownError => println!("Unknown Error")
-        }
+    list_person.push(person_factory("Pablo".to_string(), Gender::MALE ));
+    list_person.push(person_factory("Sinthia".to_string(), Gender::FEMALE ));
+
+
+    for person in &list_person{ 
+        println!("{:#?}", person)
     }
 }
