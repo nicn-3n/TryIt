@@ -21,13 +21,17 @@ fn person_factory(name:String, gender:Gender) -> Person {
 
 fn main() {
 
-    let mut list_person = Vec::new();
+    let mut array_person = [
+        person_factory("Pablo".to_string(), Gender::MALE ),
+        person_factory("Sinthia".to_string(), Gender::FEMALE ),
+        person_factory("Antonella".to_string(), Gender::FEMALE )
+,   ];
 
-    list_person.push(person_factory("Pablo".to_string(), Gender::MALE ));
-    list_person.push(person_factory("Sinthia".to_string(), Gender::FEMALE ));
+    let n = 3;
 
-
-    for person in &list_person{ 
-        println!("{:#?}", person)
+    let mut  i=0;
+    while i<n {
+        println!("{:#?}", array_person[i]);
+        i=i+1
     }
 }
