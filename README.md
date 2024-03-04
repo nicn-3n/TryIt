@@ -3,9 +3,8 @@
 A collection of files containing some code made just to try Rust features in the goal to better understand them
 
 ## Current Task 
-**Task 5** :  same like in Task 4 but this time using array ie 
-Struct, Enum, for loop, Array, Debug statements, function
-initialise an array of Person  containing an enum then print them using debug statement
+**Task 6** :  Operations on Vec data structure 
+initialise an empty Vec, push some elements, display, pop some element diaplay  
 
 ## Compile & Run
 With Rust 1.76 On Ubuntu
@@ -26,3 +25,7 @@ initialise a list of Custom Error define by enum then print them
 
 **Task 4** :  Struct, Enum, for loop, Vec, Debug statements, function
 initialise a list of Person  containing an enum then print them using debug statement
+
+**Task 5** :  same like in Task 4 but this time using array ie 
+Struct, Enum, for loop, Vec, Debug statements, function
+initialise a list of Person  containing an enum then print them using debug statemen
